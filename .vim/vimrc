@@ -1,0 +1,52 @@
+" vim:fdm=marker:fdl=0
+" Plugins {{{
+call plug#begin('~/.vim/plugged')
+Plug 'vimwiki/vimwiki'
+Plug 'ycm-core/YouCompleteMe'
+call plug#end()
+" }}}
+" {{{ General settings
+set nocompatible
+filetype plugin on
+syntax on
+
+set spelllang=en_us,de_ch
+
+" Better command-line completion
+set wildmenu
+
+" Case insensitive search
+set ignorecase
+set smartcase
+
+" Highlight search
+set hlsearch
+" }}}
+" Styling {{{
+set background=dark
+:color desert
+:set number relativenumber
+" }}}
+" Shortcuts {{{
+set pastetoggle=<F2>
+map <F4> :YcmCompleter GoToDefinitionElseDeclaration<CR>
+" }}}
+" Folding {{{
+set foldlevelstart=2
+nnoremap <space> za
+" }}}
+" Vimwiki {{{
+let g:vimwiki_list = [{
+\ 'path': '~/vimwiki/',
+\ 'syntax': 'markdown',
+\ 'ext': '.md'}]
+let g:vimwiki_folding = 'expr'
+ " Diary {{{
+command! Diary VimwikiDiaryIndex
+augroup vimwikigroup
+  autocmd!
+  " automatically update links on read diary
+  autocmd BufRead,BufNewFile diary.md VimwikiDiaryGenerateLinks
+augroup end
+ " }}}
+" }}}
