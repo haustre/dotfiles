@@ -3,6 +3,7 @@
 call plug#begin('~/.vim/plugged')
 Plug 'vimwiki/vimwiki'
 Plug 'ycm-core/YouCompleteMe'
+Plug 'easymotion/vim-easymotion'
 call plug#end()
 " }}}
 " {{{ General settings
@@ -18,7 +19,6 @@ set wildmenu
 " Case insensitive search
 set ignorecase
 set smartcase
-
 " Highlight search
 set hlsearch
 " }}}
@@ -49,4 +49,18 @@ augroup vimwikigroup
   autocmd BufRead,BufNewFile diary.md VimwikiDiaryGenerateLinks
 augroup end
  " }}}
+" }}}
+" Easy Motion {{{
+let g:EasyMotion_do_mapping = 0 " Disable default mappings
+
+map s <Plug>(easymotion-bd-f)
+nmap s <Plug>(easymotion-overwin-f)
+
+map w <Plug>(easymotion-bd-w)
+nmap w <Plug>(easymotion-overwin-w)
+
+" Turn on case-insensitive feature
+let g:EasyMotion_smartcase = 1
+
+let g:EasyMotion_skipfoldedline = 0
 " }}}
