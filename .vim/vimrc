@@ -3,6 +3,8 @@
 call plug#begin('~/.vim/plugged')
 Plug 'vimwiki/vimwiki'
 Plug 'ycm-core/YouCompleteMe'
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
 Plug 'easymotion/vim-easymotion'
 call plug#end()
 " }}}
@@ -10,6 +12,10 @@ call plug#end()
 set nocompatible
 filetype plugin on
 syntax on
+
+" time to wait before trigger plugins default:4000
+" used by vim-gitgutter
+set updatetime=200
 
 set spelllang=en_us,de_ch
 
@@ -63,4 +69,13 @@ nmap w <Plug>(easymotion-overwin-w)
 let g:EasyMotion_smartcase = 1
 
 let g:EasyMotion_skipfoldedline = 0
+ " }}}
+" Git {{{
+let g:gitgutter_set_sign_backgrounds = 1
+highlight GitGutterAdd    guifg=#009900 ctermfg=2
+highlight GitGutterChange guifg=#bbbb00 ctermfg=3
+highlight GitGutterDelete guifg=#ff2222 ctermfg=1
+
+" move between hunks: '[c' ']c'
+" preview, stage, undo <leader>hp, hs, hu
 " }}}
