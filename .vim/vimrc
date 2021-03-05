@@ -6,6 +6,8 @@ Plug 'ycm-core/YouCompleteMe'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 Plug 'easymotion/vim-easymotion'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 call plug#end()
 " }}}
 " {{{ General settings
@@ -78,4 +80,7 @@ highlight GitGutterDelete guifg=#ff2222 ctermfg=1
 
 " move between hunks: '[c' ']c'
 " preview, stage, undo <leader>hp, hs, hu
+" }}}
+" Find Files {{{
+map ; :GFiles<CR>
 " }}}
